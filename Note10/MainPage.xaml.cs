@@ -173,14 +173,14 @@ namespace Note10
             }
             // reset colors to correct defaults for Focused state
             ITextRange documentRange = editor.Document.GetRange(0, TextConstants.MaxUnitCount);
-            SolidColorBrush background = (SolidColorBrush)App.Current.Resources["TextControlBackgroundFocused"];
+            //SolidColorBrush background = (SolidColorBrush)App.Current.Resources["TextControlBackgroundFocused"];
             SolidColorBrush foreground = (SolidColorBrush)App.Current.Resources["TextControlForegroundFocused"];
 
             editor.Document.ApplyDisplayUpdates();
 
-            if (background != null && foreground != null)
+            if (/*background != null &&*/ foreground != null)
             {
-                documentRange.CharacterFormat.BackgroundColor = background.Color;
+                //documentRange.CharacterFormat.BackgroundColor = background.Color;
             }
             // saving selection span
             var caretPosition = editor.Document.Selection.GetIndex(TextRangeUnit.Character) - 1;
@@ -227,9 +227,9 @@ namespace Note10
                 editor.IsSpellCheckEnabled = false;
         }
 
-        private void underlineButton_Click(object sender, RoutedEventArgs e)
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            editor.Document.Selection.CharacterFormat.Underline = (UnderlineType)FormatEffect.Toggle;
+            AboutTeachingTip.IsOpen = true;
         }
     }
 }
